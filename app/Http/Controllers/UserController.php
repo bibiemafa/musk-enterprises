@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Manager;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Hash;
 
-class ManagerController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +15,7 @@ class ManagerController extends Controller
      */
     public function index()
     {
-        return view('manager.index');
+        //
     }
 
     /**
@@ -24,7 +25,7 @@ class ManagerController extends Controller
      */
     public function create()
     {
-        //
+        return view('users.create');
     }
 
     /**
@@ -35,16 +36,30 @@ class ManagerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|same:confirm-password',
+            'role' => 'required'
+        ]);
+    
+        $input = $request->all();
+        $input['password'] = Hash::make($input['password']);
+    
+        $user = User::create($input);
+        $user->assignRole($request->input('role'));
+    
+        return redirect()->route('manager.index')
+                        ->with('success','User created successfully');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Manager  $manager
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show(Manager $manager)
+    public function show(User $user)
     {
         //
     }
@@ -52,10 +67,10 @@ class ManagerController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Manager  $manager
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(Manager $manager)
+    public function edit(User $user)
     {
         //
     }
@@ -64,10 +79,10 @@ class ManagerController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Manager  $manager
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Manager $manager)
+    public function update(Request $request, User $user)
     {
         //
     }
@@ -75,10 +90,10 @@ class ManagerController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Manager  $manager
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Manager $manager)
+    public function destroy(User $user)
     {
         //
     }

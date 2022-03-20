@@ -19,4 +19,5 @@ Route::get('/', function () {
 
 Auth::routes();
 Route::resource('manager', 'App\Http\Controllers\ManagerController');
+Route::resource('users', 'App\Http\Controllers\UserController');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
