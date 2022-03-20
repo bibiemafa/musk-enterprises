@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Manager;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ManagerController extends Controller
 {
@@ -14,7 +15,9 @@ class ManagerController extends Controller
      */
     public function index()
     {
-        return view('manager.index');
+        $users = DB::table('users')->where('role','supervisor')->get();
+        //dd($users);
+        return view('manager.index', compact('users'));
     }
 
     /**
@@ -25,6 +28,7 @@ class ManagerController extends Controller
     public function create()
     {
         //
+        return view('manager.create');
     }
 
     /**
@@ -47,6 +51,9 @@ class ManagerController extends Controller
     public function show(Manager $manager)
     {
         //
+        $users = DB::table('users')->get();
+        //dd($users);
+        return view('manager.show');
     }
 
     /**

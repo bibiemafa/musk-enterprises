@@ -29,7 +29,11 @@
   --bs-gray-700: #495057;
   --bs-gray-800: #343a40;
   --bs-gray-900: #212529;
+<<<<<<< HEAD
   --bs-primary: #17396b !important;
+=======
+  --bs-primary: #17396b;
+>>>>>>> 56abdc56ad8af66585c1b17a53ca7be705309a92
   --bs-secondary: #6c757d;
   --bs-success: #198754;
   --bs-info: #0dcaf0;
