@@ -18,6 +18,7 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-Route::resource('manager', 'App\Http\Controllers\ManagerController')->middleware('role:manager');
+Route::resource('manager', 'App\Http\Controllers\ManagerController');
+Route::resource('client', 'App\Http\Controllers\ClientController');
 Route::resource('users', 'App\Http\Controllers\UserController')->middleware('role:manager');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
