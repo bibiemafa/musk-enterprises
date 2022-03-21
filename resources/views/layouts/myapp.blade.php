@@ -101,6 +101,9 @@
         ul li a {
             color: #fff;
         }
+        label{
+            text-align: left !important;
+        }
     </style>
 
 </head>

@@ -20,5 +20,8 @@ Route::get('/', function () {
 Auth::routes();
 Route::resource('manager', 'App\Http\Controllers\ManagerController');
 Route::resource('client', 'App\Http\Controllers\ClientController');
-Route::resource('users', 'App\Http\Controllers\UserController')->middleware('role:manager');
+Route::resource('inspector', 'App\Http\Controllers\InspectorController');
+Route::resource('reports', 'App\Http\Controllers\ReportsController');
+Route::resource('users', 'App\Http\Controllers\UserController');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/savepdf', [App\Http\Controllers\ReportsController::class, 'pdf'])->name('pdf');

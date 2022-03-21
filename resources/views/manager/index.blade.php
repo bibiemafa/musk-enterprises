@@ -27,7 +27,7 @@
                                 <td >{{$us->name}}</td>
                                 <td >{{$us->email}}</td>
                                 <td >{{$us->role}}</td>
-                                <td ><a href={{ route('supervisor.create') }}><h5 class="btn btn-sm btn-primary">ASSIGN</h5></></td>
+                                <td ><a href="#"><h5 class="btn btn-sm btn-primary">ASSIGN</h5></></td>
                             </tr>
                             @endforeach
                         </tbody>

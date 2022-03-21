@@ -131,7 +131,7 @@
                         @endif
                         @else
                         <li class="nav-item">
-                            <a class="nav-link text-light" href="{{ route('register') }}" style="font-weight: bold;">{{ __('Register Service') }}</a>
+                            <a class="nav-link text-light" href="{{ route('client.create') }}" style="font-weight: bold;">{{ __('Register Service') }}</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
