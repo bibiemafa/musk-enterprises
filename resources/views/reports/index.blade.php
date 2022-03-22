@@ -39,7 +39,7 @@
                                         <h5 class="btn btn-sm btn-primary mr-1">View</h5>
                                         </a>
                                         @if ($user == 'supervisor')
-                                        <a href="{{ route('reports.show', $us->id) }}">
+                                        <a href="{{ route('reports.edit', $us->id) }}">
                                         <h5 class="btn btn-sm btn-danger">Edit</h5>
                                         </a> 
                                          @endif
