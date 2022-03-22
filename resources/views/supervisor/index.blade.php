@@ -6,8 +6,7 @@
         <div class= "col-md-10 ">
             <div class="card mt-2">
                 <div class="card-header bg-primary col-md-12   d-flex flex-row ">
-                    <a href="{{ url('supervisor/create') }}" class="text-sm text-gray-700 dark:text-gray-500 underline "><button class="btn text-white" value="">ADD NEW USER</button></a>
-                    <a href="{{ url('supervisor/show') }}" class="text-sm text-gray-700 dark:text-gray-500 underline "><button class="btn text-white" value="">VIEW USERS</button></a>
+                    Inspectors
                 </div>
                 <div class="card-body">
                     <table class="table table-stripped">
@@ -27,7 +26,7 @@
                                 <td >{{$us->name}}</td>
                                 <td >{{$us->email}}</td>
                                 <td >{{$us->role}}</td>
-                                <td ><a href={{ route('supervisor.create') }}><h5 class="btn btn-sm btn-primary">ASSIGN</h5></></td>
+                                <td ><a href={{ route('inspector.create') }}><h5 class="btn btn-sm btn-primary">ASSIGN</h5></></td>
                             </tr>
                             @endforeach
                         </tbody>

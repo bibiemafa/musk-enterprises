@@ -104,6 +104,19 @@
         label{
             text-align: left !important;
         }
+        
+    </style>
+    <style type="text/css" media="print"> 
+        button{
+            display:none !important;
+        }
+        @page{
+            width: 100%;
+            background: green !important;
+        }
+        .navbar{
+            display: none !important;
+        }
     </style>
 
 </head>

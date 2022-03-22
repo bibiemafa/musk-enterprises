@@ -76,15 +76,10 @@
 
                         </li>
                     </ul>
-                    <a href="#" class="list-group-item list-group-item-action py-2 ripple active pb-3 bg-primary" aria-current="true">
+                    <!-- <a href="#" class="list-group-item list-group-item-action py-2 ripple active pb-3 bg-primary" aria-current="true">
                         <i class="fas fa-tachometer-alt fa-fw me-3 "></i><span>Main dashboard</span>
                     </a>
                     <ul class="list-unstyled side">
-
-                        <li class="">
-                            <a href="#profile" class="list-group-item list-group-item-action py-2 ripple " data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                                <i class="fas fa-clipboard-list text-info fa-1x me-3 mt-3"></i><span>Reports Management </span></a>
-                        </li>
 
                         <li class="">
                             <a href="/requests" class="list-group-item list-group-item-action py-2 ripple ">
@@ -100,7 +95,7 @@
                         </li>
 
 
-                    </ul>
+                    </ul> -->
                 </div>
             </div>
         </nav>
@@ -114,8 +109,8 @@
     <nav id="main-navbar" class="navbar navbar-expand-lg navbar-light bg-white fixed-top pl-5">
         <!-- Container wrapper -->
         <div class="container-fluid conta">
-            <a class="navbar-brand " href="#">
-                <h5 class="mt-3 text-primary" style=" position : relative; left: 52px">MUSK ENTERPRISES</h5>
+            <a class="navbar-brand " href="/">
+                <h5 class="mt-3 text-dark " style=" position : relative; left: 52px">MUSK ENTERPRISES</h5>
             </a>
             <!-- Toggle button -->
             <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
@@ -123,36 +118,10 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto">
-                    @guest
-                    @if (Route::has('login'))
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                    </li>
-                    @endif
-
-                    @if (Route::has('register'))
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                    </li>
-                    @endif
-                    @else
-                    <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ Auth::user()->name }}
-                        </a>
-
-                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
-                            </a>
-
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                @csrf
-                            </form>
-                        </div>
-                    </li>
-                    @endguest
+                
+                    <li class="nav-item pr-5">
+                        <a class="nav-link" href="{{ route('inspector.index') }}">{{ __('Home') }}</a>
+                  
                 </ul>
             </div>
         </div>

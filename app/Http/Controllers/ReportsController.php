@@ -17,8 +17,10 @@ class ReportsController extends Controller
      */
     public function index()
     {
-        
-        return view('reports.index');
+        $user = Auth::user()->role;
+        $reports = DB::table('reports')->get();
+        //dd($user);
+        return view('reports.index', compact('reports','user'));
     }
 
     /**
@@ -174,9 +176,12 @@ class ReportsController extends Controller
      * @param  \App\Models\Reports  $reports
      * @return \Illuminate\Http\Response
      */
-    public function show(Reports $reports)
+    public function show(Reports $report)
     {
-        return view('reports.show', compact('reports'));
+        
+        $reports = DB::table('reports')->pluck('id');
+       //dd($report);
+        return view('reports.show', compact('report'));
     }
 
     /**

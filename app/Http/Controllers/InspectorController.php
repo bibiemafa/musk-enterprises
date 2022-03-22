@@ -20,17 +20,16 @@ class InspectorController extends Controller
 
        $user = Auth::user()->name;
        $clients = DB::table('reports')->where('inspector',$user)->get();
+       $all_clients = DB::table('users')->where('role','client')->get();
        //dd($clients);
-        return view('inspector.index', compact('clients'));
+        return view('inspector.index', compact('clients', 'all_clients'));
     }
 
     function pdf(){
   
         $user = Auth::user()->name;
         $clients = DB::table('reports')->where('inspector',$user)->get();
-
-        $pdf = App::loadView('pdf.invoice', $clients);
-        return $pdf->download('invoice.pdf');
+        
     }
     /**
      * Show the form for creating a new resource.
@@ -39,7 +38,8 @@ class InspectorController extends Controller
      */
     public function create()
     {
-        
+        $user = Auth::user()->name;
+        return view('inspector.create', compact('user'));
     }
 
     /**
@@ -51,6 +51,19 @@ class InspectorController extends Controller
     public function store(Request $request)
     {
         //
+        $this->validate($request, [
+            'inspector_name' => 'required',
+            'task_assigned' => 'required',
+            'supervisor' => 'required',
+        ]);
+
+        $input = $request->all();
+
+        $user = Inspector::create($input);
+
+
+        return redirect()->route('supervisor.index')
+            ->with('success', 'Inspector assigned  successfully');
     }
 
     /**

@@ -88,8 +88,8 @@
                         </li>
                         <li class="">
 
-                            <a href="#" class="list-group-item list-group-item-action py-2 ripple ">
-                                <i class="fas fa-user text-info fa-1x me-3 mt-3"></i><span>Inspections Management</span>
+                            <a href="{{ route('users.index') }}" class="list-group-item list-group-item-action py-2 ripple ">
+                                <i class="fas fa-user text-info fa-1x me-3 mt-3"></i><span>User Management</span>
                             </a>
 
                         </li>
@@ -120,7 +120,7 @@
                 <ul class="navbar-nav ms-auto">
                 
                     <li class="nav-item pr-5">
-                        <a class="nav-link" href="{{ route('supervisor.index') }}">{{ __('Home') }}</a>
+                        <a class="nav-link" href="{{ route('manager.index') }}">{{ __('Home') }}</a>
                   
                 </ul>
             </div>

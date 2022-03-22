@@ -15,7 +15,7 @@ class ManagerController extends Controller
      */
     public function index()
     {
-        $users = DB::table('users')->where('role','supervisor')->get();
+        $users = DB::table('users')->where('role', 'supervisor')->get();
         //dd($users);
         return view('manager.index', compact('users'));
     }
