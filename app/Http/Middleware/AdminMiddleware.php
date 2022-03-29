@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class SupervisorMiddleware
+class AdminMiddleware
 {
     /**
      * Handle an incoming request.
@@ -17,16 +17,13 @@ class SupervisorMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if(Auth::user()->role=='supervisor'){
-
-            return $next($request);
-        }
         if(Auth::user()->role=='admin'){
 
             return $next($request);
         }
+      
         else{
-            return redirect('/')->with('status', 'Only supervisors are allowed here');
+            return redirect('/')->with('status', 'Only admins are allowed here');
         }
     }
 }

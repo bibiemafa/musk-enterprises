@@ -12,28 +12,27 @@
                 </div>
                 @endif
                 <div class="card-header bg-primary col-md-12   d-flex flex-row ">
-                    Inspectors
+                    Assigned Inspectors
                 </div>
                 <div class="card-body">
                     <table class="table table-stripped">
                         <thead>
                             <tr>
-                          
+                                <td >ID</td>
                                 <td >Inspector Name</td>
-                                <td >Email</td>
-                                <td >Role</td>
-                                <td >Reports Completed</td>
+                                <td >Supervisor</td>
+                                <td >Task Assigned</td>
                                 <td >ACTIONS</td>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($users as $us)
                             <tr>
-                        
-                                <td >{{$us->name}}</td>
-                                <td >{{$us->email}}</td>
-                                <td >{{$us->role}}</td>
-                                <td ><a href={{ route('inspector.create') }}><h5 class="btn btn-sm btn-primary">ASSIGN</h5></></td>
+                                <td >{{$us->id}}</td>
+                                <td >{{$us->inspector_name}}</td>
+                                <td >{{$us->supervisor}}</td>
+                                <td >{{$us->task_assigned}}</td>
+                                <td ><a href={{ route('inspector.show', $us->id) }}><h5 class="btn btn-sm btn-primary">VIEW</h5></></td>
                             </tr>
                             @endforeach
                         </tbody>

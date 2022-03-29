@@ -3,8 +3,12 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
+     <div class="col-md-12">
+     <button class="btn bg-secondary w-25 justify-content-end mb-3 text-light" onclick="window.print()" style=" text-align : center">Save Report As PDF</button>
+     </div>
         <div class="col-md-12">
             <div class="card">
+           
                 <div class="card-header text-center" style="font-weight: bolder;">{{ __('Health, Safety,Quality and Environmental Site Inspection') }}</div>
               
                 <div class="card-body">
@@ -662,7 +666,7 @@
                 </div>
             </div>
         </div>
-        <button class="btn bg-primary w-25" onclick="window.print()">SAVE</button>
+        
     </div>
 </div>
 @endsection

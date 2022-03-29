@@ -16,8 +16,16 @@ class SupervisorContoller extends Controller
     public function index()
     {
         $users = DB::table('users')->where('role','inspector')->get();
+        
         //dd($users);
         return view('supervisor.index',compact('users'));
+    }
+
+    public function inspectors()
+    {
+        $users = DB::table('inspectors')->get();
+        //dd($users);
+        return view('supervisor.inspectors',compact('users'));
     }
 
     /**

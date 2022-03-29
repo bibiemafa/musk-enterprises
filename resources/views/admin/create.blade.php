@@ -1,4 +1,4 @@
-@extends('layouts.myapp')
+@extends('layouts.admin')
 
 @section('content')
 <div class="container">
@@ -49,7 +49,7 @@
                                 <option value="">Select the user role to assign to the new user</option>
                                 <option value="supervisor">Supervisor</option>
                                     <option value="inspector">Inspector</option>
-                                    <option value="admin">Administrator</option>
+                                    <option value="manager">Manager</option>
 
 
                                 </select>

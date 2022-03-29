@@ -21,8 +21,16 @@ class InspectorMiddleware
 
             return $next($request);
         }
+        if(Auth::user()->role=='admin'){
+
+            return $next($request);
+        }
+        if(Auth::user()->role=='supervisor'){
+
+            return $next($request);
+        }
         else{
-            return redirect('/')->with('status', 'Only inspectors are allowed here');
+            return redirect('/')->with('status', 'You are not allowed. Go back');
         }
     }
 }

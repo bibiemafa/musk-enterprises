@@ -33,6 +33,10 @@ class RedirectIfAuthenticated
                 if(Auth::user()->role=='inspector'){
                     return redirect()->route('inspector.index');
                  }
+
+                 if(Auth::user()->role=='admin'){
+                    return redirect()->route('admin.index');
+                 }
             
                  else{
                     if(Auth::user()->role=='supervisor'){

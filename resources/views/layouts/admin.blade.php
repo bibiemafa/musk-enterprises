@@ -62,7 +62,7 @@
                             </a>
 
                         <li><a class=" text-success">
-                                {{ Auth::user()->name }} <span class="caret"></span>
+                                {{ Auth::user()->name }} <span class="caret"></span class="caret"><span style="text-transform:uppercase; font-size:10px;">( {{ Auth::user()->role }} )</span>
                             </a></li>
 
                         <a class="text-danger ml-2" href="{{ route('logout') }}" onclick="event.preventDefault();
@@ -102,7 +102,7 @@
         <!-- Sidebar -->
 
         <!-- Navbar -->
-      
+
     </header>
     <!--Main Navigation-->
     <!-- Navbar -->
@@ -118,10 +118,10 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto">
-                
+
                     <li class="nav-item pr-5">
-                        <a class="nav-link" href="{{ route('manager.index') }}">{{ __('Home') }}</a>
-                  
+                        <a class="nav-link" href="{{ route('admin.index') }}">{{ __('Home') }}</a>
+
                 </ul>
             </div>
         </div>
@@ -166,7 +166,26 @@
             });
         });
     </script>
-
+    <script type="text/javascript" src="{{asset('js/sweetalert.min.js')}}"></script>
+    <script type="text/javascript">
+        $('.show_confirm').click(function(event) {
+            var form = $(this).closest("form");
+            var name = $(this).data("name");
+            event.preventDefault();
+            swal({
+                    title: `Are you sure you want to delete this User?`,
+                    text: "If you delete this, it will be gone forever.",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        form.submit();
+                    }
+                });
+        });
+    </script>
 </body>
 
 </html>

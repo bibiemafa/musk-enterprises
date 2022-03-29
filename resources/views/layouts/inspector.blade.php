@@ -62,7 +62,7 @@
                             </a>
 
                         <li><a class=" text-success">
-                                {{ Auth::user()->name }} <span class="caret"></span>
+                                {{ Auth::user()->name }} <span class="caret"></span><span style="text-transform:uppercase; font-size:10px;">( {{ Auth::user()->role }} )</span>
                             </a></li>
 
                         <a class="text-danger ml-2" href="{{ route('logout') }}" onclick="event.preventDefault();

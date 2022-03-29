@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Client;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class ClientController extends Controller
 {
@@ -14,7 +16,11 @@ class ClientController extends Controller
      */
     public function index()
     {
-        return view('client.index');
+        $inspectors = DB::table('inspectors')->pluck('task_assigned');
+        //dd($inspectors);
+        $clients = DB::table('clients')->where('fullname', $inspectors)->get();
+        //dd($clients);
+        return view('client.index', compact('clients'));
     }
 
     /**
@@ -24,7 +30,11 @@ class ClientController extends Controller
      */
     public function create()
     {
-        return view('client.create');
+        $user = Auth::user()->name;
+        //dd($user);
+        return view('client.create', compact('user'));
+    
+      
     }
 
     /**
@@ -35,7 +45,22 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'fullname' => 'required',
+            'address' => 'required',
+            'phone' => 'required',
+            'request' => 'required',
+            'status' => 'required'
+        ]);
+    
+        $input = $request->all();
+      
+    
+        Client::create($input);
+        
+    
+        return redirect()->route('client.index')
+                        ->with('success','Request Submitted Successfully');
     }
 
     /**
