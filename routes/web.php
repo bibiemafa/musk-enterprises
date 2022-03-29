@@ -36,7 +36,7 @@ Route::middleware(['auth', 'isInspector'])->group(function () {
 Route::middleware(['auth', 'isSupervisor'])->group(function () {
 
     Route::resource('supervisor', 'App\Http\Controllers\SupervisorContoller');
-    Route::resource('inspector', 'App\Http\Controllers\InspectorController');
+    //Route::resource('inspector', 'App\Http\Controllers\InspectorController');
  
 });
 Route::middleware(['auth', 'isClient'])->group(function () {

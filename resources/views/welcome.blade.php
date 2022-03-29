@@ -3,7 +3,7 @@
 @section('content')
 <section class="Splash container-fluid" style="margin-top : -30px !important">
     <div class="video-container">
-          <img src="img/dev.png" alt="" srcset="" style="width: 50%; height : 80vh">
+          <img src="img/1.png" alt="" srcset="" style="width: 50%; height : 80vh">
     </div>
     <div class="row mtt-5">
         <div class="card">
@@ -37,9 +37,7 @@
               <div class="card-header">WHAT DO WE DO</div>
               <div class="card-body">
                   <p class="p-2 ">
-                      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos fugiat amet itaque magnam 
-                      officia dolorem provident aut praesentium in autem voluptatum at,
-                       voluptate esse molestiae repudiandae quam dicta. Repudiandae, corporis!
+                      Musk Enterprises for quality assurance. Have ISO certified inspections with us. Satisfaction guaranteed. Value for money!
                   </p>
               </div>
           </div>

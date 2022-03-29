@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Manager;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Spatie\Permission\Models\Role;
 
 class ManagerController extends Controller
 {
@@ -15,6 +16,9 @@ class ManagerController extends Controller
      */
     public function index()
     {
+           //Role::create(['name'=>'manager']);
+
+        //Role::create(['name'=>'client']);
         $users = DB::table('users')->where('role', 'supervisor')->get();
         //dd($users);
         return view('manager.index', compact('users'));

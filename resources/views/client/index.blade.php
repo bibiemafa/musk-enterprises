@@ -157,7 +157,7 @@
         <body>
             <section class="Splash container-fluid" style="margin-top : -30px !important">
                 <div class="video-container client">
-                    <img src="img/client.png" alt="" srcset="" style="width: 50%; height : 80vh">
+                    <img src="img/2.png" alt="" srcset="" style="width: 50%; height : 80vh">
                 </div>
                 <div class="row mtt-5">
                     <div class="card">
@@ -188,9 +188,7 @@
                             <div class="card-header">WHAT DO WE DO</div>
                             <div class="card-body">
                                 <p class="p-2 ">
-                                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos fugiat amet itaque magnam
-                                    officia dolorem provident aut praesentium in autem voluptatum at,
-                                    voluptate esse molestiae repudiandae quam dicta. Repudiandae, corporis!
+                                    This is the home of quality services. With us , you are never disappointed. Cash back is guaranteed if you are not satisfied!
                                 </p>
                             </div>
                         </div>
