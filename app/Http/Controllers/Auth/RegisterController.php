@@ -34,9 +34,9 @@ class RegisterController extends Controller
     {
         if (Auth::user()->role == 'inspector') {
             return 'inspector';
-        } else if (Auth::user()->role == 'manager') {
+        } else if (Auth::user()->role == 'admin') {
 
-            return 'manager';
+            return 'admin';
         } else if (Auth::user()->role == 'supervisor') {
 
             return 'supervisor';

@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-use Hash;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -49,9 +49,9 @@ class UserController extends Controller
         $input['password'] = Hash::make($input['password']);
     
         $user = User::create($input);
-        $user->assignRole($request->input('role'));
+        //$user->assignRole($request->input('role'));
     
-        return redirect()->route('manager.index')
+        return redirect()->route('admin.index')
                         ->with('success','User created successfully');
     }
 
@@ -63,7 +63,7 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        //
+        return view('users.show', compact('user'));
     }
 
     /**
@@ -73,8 +73,11 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(User $user)
+
+    
     {
         //
+        return view("users.edit",compact('user'));
     }
 
     /**
@@ -86,7 +89,15 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        $data = request()->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'role' => 'required'
+        ]);
+    
+        $user->update($data);
+        return redirect()->route('admin.index')
+        ->with('success','User updated successfully');
     }
 
     /**
@@ -97,6 +108,9 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+        $user->delete();
+    
+        return redirect()->route('users.index')
+                        ->with('danger','User deleted successfully');
     }
 }

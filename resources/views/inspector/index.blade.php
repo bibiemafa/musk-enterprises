@@ -4,7 +4,13 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-10 ">
+      
             <div class="card mt-2">
+            @if (session('success'))
+                <div class="alert alert-success" role="alert">
+                    {{ session('success') }}
+                </div>
+                @endif
                 <div class="card-header bg-primary col-md-12   d-flex flex-row ">
                     <h3>My Reports</h3>
 
@@ -37,7 +43,7 @@
 
                                 <td><a href="{{ route('reports.show', $us->id) }}">
                                         <h5 class="btn btn-sm btn-primary">View Report</h5>
-                                        <h5 class="btn btn-sm btn-danger">Edit Report</h5>
+                                        
                                 </td>
                             </tr>
                             @endforeach

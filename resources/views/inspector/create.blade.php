@@ -43,7 +43,18 @@
                             <label for="task_assigned" class="col-md-4 col-form-label text-md-end">{{ __('Task') }}</label>
 
                             <div class="col-md-6">
-                                <input id="task_assigned" type="text" class="form-control @error('task_assigned') is-invalid @enderror" name="task_assigned" value="{{ old('task_assigned') }}" required autocomplete="task_assigned">
+                                <select id="task_assigned" name="task_assigned" class=" form-control @error('task_assigned') is-invalid @enderror" name="role" value="{{ old('role') }}" required autocomplete="task_assigned" autofocus>
+                                    <!-- <select id="task_assigned" class="form-control text-success p-2" name="town" required> -->
+                                    <option class="p-2" value="">Select Client to Assign Inspector</option>
+
+                                    @foreach($clients as $c)
+
+                                    <option value='{{$c->fullname}}'>{{$c->fullname}}</option>";
+                                    @endforeach
+
+
+
+                                </select>
 
                                 @error('task_assigned')
                                 <span class="invalid-feedback" role="alert">
@@ -51,20 +62,22 @@
                                 </span>
                                 @enderror
                             </div>
+
                         </div>
-                      
-                        
-                        <div class="row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Assign Inspector') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+                
+
+
+                <div class="row mb-0">
+                    <div class="col-md-6 offset-md-4">
+                        <button type="submit" class="btn btn-primary">
+                            {{ __('Assign Inspector') }}
+                        </button>
+                    </div>
                 </div>
+                </form>
             </div>
         </div>
     </div>
+</div>
 </div>
 @endsection

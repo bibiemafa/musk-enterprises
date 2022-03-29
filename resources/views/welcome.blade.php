@@ -3,7 +3,7 @@
 @section('content')
 <section class="Splash container-fluid" style="margin-top : -30px !important">
     <div class="video-container">
-          <img src="img/dev.png" alt="" srcset="" style="width: 50%; height : 80vh">
+          <img src="img/pic1.jpeg" alt="" srcset="" style="width: 50%; height : 80vh">
     </div>
     <div class="row mtt-5">
         <div class="card">

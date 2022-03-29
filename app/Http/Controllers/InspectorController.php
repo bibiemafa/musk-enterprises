@@ -25,13 +25,7 @@ class InspectorController extends Controller
         return view('inspector.index', compact('clients', 'all_clients'));
     }
 
-    function pdf(){
-  
-        $user = Auth::user()->name;
-        $clients = DB::table('reports')->where('inspector',$user)->get();
-        
-    }
-    /**
+        /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
@@ -39,7 +33,9 @@ class InspectorController extends Controller
     public function create()
     {
         $user = Auth::user()->name;
-        return view('inspector.create', compact('user'));
+        $clients = DB::table('clients')->get();
+        //dd($clients);
+        return view('inspector.create', compact('user', 'clients'));
     }
 
     /**
@@ -74,7 +70,9 @@ class InspectorController extends Controller
      */
     public function show(Inspector $inspector)
     {
-        //
+        $clients = DB::table('reports')->where('inspector',$inspector)->get();
+        dd($clients);
+        return view('inspector.show', compact('clients', 'inspector'));
     }
 
     /**

@@ -62,7 +62,7 @@
                             </a>
 
                         <li><a class=" text-success">
-                                {{ Auth::user()->name }} <span class="caret"></span>
+                                {{ Auth::user()->name }} <span class="caret"></span><span style="text-transform:uppercase; font-size:10px;">( {{ Auth::user()->role }} )</span>
                             </a></li>
 
                         <a class="text-danger ml-2" href="{{ route('logout') }}" onclick="event.preventDefault();
@@ -88,7 +88,7 @@
                         </li>
                         <li class="">
 
-                            <a href="#" class="list-group-item list-group-item-action py-2 ripple ">
+                            <a href="{{ url('/inspections') }}" class="list-group-item list-group-item-action py-2 ripple ">
                                 <i class="fas fa-user text-info fa-1x me-3 mt-3"></i><span>Inspections Management</span>
                             </a>
 

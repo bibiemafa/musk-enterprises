@@ -67,7 +67,7 @@
         .mtt-5 {
             position: absolute;
             top: 20%;
-            left: 50%;
+            left: 20%;
             z-index: 10;
             width: 50%;
         }
@@ -75,10 +75,11 @@
         .mtt-5 .card {
             background-color: transparent;
             border: none;
+
         }
 
         .mtt-5 .card-header {
-            color: #0d6efd;
+            color: #fff;
             font-size: 40px;
             text-align: left;
             font-weight: bolder;
@@ -88,7 +89,7 @@
             padding: 5px;
             font-weight: bolder;
             margin-top: 10px;
-            color: #324057;
+            color: #fff;
             text-align: center;
         }
 
@@ -130,12 +131,10 @@
                         </li>
                         @endif
                         @else
-                        <li class="nav-item">
-                            <a class="nav-link text-light" href="{{ route('client.create') }}" style="font-weight: bold;">{{ __('Register Service') }}</a>
-                        </li>
+
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ Auth::user()->name }}
+                                {{ Auth::user()->name }}<span style="text-transform:uppercase; font-size:18px;">( {{ Auth::user()->role }} )</span>
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
@@ -154,10 +153,11 @@
                 </div>
             </div>
         </nav>
+
         <body>
             <section class="Splash container-fluid" style="margin-top : -30px !important">
                 <div class="video-container client">
-                    <img src="img/client.png" alt="" srcset="" style="width: 50%; height : 80vh">
+                    <img src="img/pic3.jpeg" alt="" srcset="" style="width: 60%; height : 80vh">
                 </div>
                 <div class="row mtt-5">
                     <div class="card">
@@ -175,23 +175,63 @@
                     {{ session('status') }}
                 </div>
                 @endif
-                @if (session('success'))
-                <div class="alert alert-success bg-success text-light" role="alert">
-                    {{ session('success') }}
-                </div>
-                @endif
+
             </div>
             <div class="container">
                 <div class="row mt-2">
                     <div class="col-md-12">
                         <div class="card">
-                            <div class="card-header">WHAT DO WE DO</div>
+                            <div class="card-header">My Requests</div>
                             <div class="card-body">
-                                <p class="p-2 ">
-                                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos fugiat amet itaque magnam
-                                    officia dolorem provident aut praesentium in autem voluptatum at,
-                                    voluptate esse molestiae repudiandae quam dicta. Repudiandae, corporis!
-                                </p>
+                                @if (session('success'))
+                                <div class="alert alert-success bg-success text-light" role="alert">
+                                    <button type="button" class="close" data-dismiss="alert" onclick='window.location.reload(true);'>×</button>
+                                    {{ session('success') }}
+                                </div>
+                                @endif
+                                <a href="{{ route('client.create') }}" class="btn btn-md bg-primary text-light m-2">New Request</a>
+                                <table class="table table-stripped">
+                                    <thead>
+                                        <tr style="background-color: #0d6efd;">
+                                            <td class="text-center text-light" style="font-weight: bolder;">ID</td>
+                                            <td class="text-center text-light" style="font-weight: bolder;">Client Name</td>
+                                            <td class="text-center text-light" style="font-weight: bolder;">Address</td>
+                                            <td class="text-center text-light" style="font-weight: bolder;">Phone</td>
+                                            <td class="text-center text-light" style="font-weight: bolder;">Request</td>
+                                            <td class="text-center text-light" style="font-weight: bolder;">Date Registered</td>
+
+                                            <td class="text-center text-light" style="font-weight: bolder;">Status</td>
+                                       
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach($clients as $us)
+                                        <tr>
+                                            <td>{{$us->id}}</td>
+                                            <td>{{$us->fullname}}</td>
+                                            <td>{{$us->address}}</td>
+                                            <td>{{$us->phone}}</td>
+                                            <td>{{$us->request}}</td>
+                                            <td>{{$us->created_at}}</td>
+                                            <td>{{$us->status}}</td>
+                                        
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                                    <tfoot>
+                                        <tr style="background-color: #000;">
+                                        <td class="text-center text-light" style="font-weight: bolder;">ID</td>
+                                            <td class="text-center text-light" style="font-weight: bolder;">Client Name</td>
+                                            <td class="text-center text-light" style="font-weight: bolder;">Address</td>
+                                            <td class="text-center text-light" style="font-weight: bolder;">Phone</td>
+                                            <td class="text-center text-light" style="font-weight: bolder;">Request</td>
+                                            <td class="text-center text-light" style="font-weight: bolder;">Date Registered</td>
+
+                                            <td class="text-center text-light" style="font-weight: bolder;">Status</td>
+                                            
+                                        </tr>
+                                    </tfoot>
+                                </table>
                             </div>
                         </div>
                     </div>

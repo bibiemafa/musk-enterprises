@@ -4,7 +4,13 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-11 ">
+       
             <div class="card mt-2">
+            @if (session('success'))
+                <div class="alert alert-success" role="alert">
+                    {{ session('success') }}
+                </div>
+                @endif
                 <div class="card-header bg-primary float-center">
                     <h3 class="m-2 text-light " style="text-align: center;">All Inspections</h3>
 
