@@ -40,15 +40,12 @@ Route::middleware(['auth', 'isInspector'])->group(function () {
 Route::middleware(['auth', 'isSupervisor'])->group(function () {
 
     Route::resource('supervisor', 'App\Http\Controllers\SupervisorContoller');
-<<<<<<< HEAD
     //Route::resource('inspector', 'App\Http\Controllers\InspectorController');
-=======
     Route::get('/inspections', function () {
         return view('welcome');
     });
     Route::get('/inspections', [App\Http\Controllers\SupervisorContoller::class, 'inspectors'])->name('inspectors');
     // Route::resource('inspector', 'App\Http\Controllers\InspectorController');
->>>>>>> 8a3525a47b0fa64255983a2481dd1efec728e0dc
  
 });
 Route::middleware(['auth', 'isClient'])->group(function () {

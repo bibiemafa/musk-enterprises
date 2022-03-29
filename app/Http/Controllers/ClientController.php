@@ -16,9 +16,8 @@ class ClientController extends Controller
      */
     public function index()
     {
-        $inspectors = DB::table('inspectors')->pluck('task_assigned');
-        //dd($inspectors);
-        $clients = DB::table('clients')->where('fullname', $inspectors)->get();
+       
+        $clients = DB::table('clients')->get();
         //dd($clients);
         return view('client.index', compact('clients'));
     }

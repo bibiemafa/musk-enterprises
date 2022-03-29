@@ -67,7 +67,7 @@
         .mtt-5 {
             position: absolute;
             top: 20%;
-            left: 20%;
+            left: 50%;
             z-index: 10;
             width: 50%;
         }
@@ -157,11 +157,7 @@
         <body>
             <section class="Splash container-fluid" style="margin-top : -30px !important">
                 <div class="video-container client">
-<<<<<<< HEAD
                     <img src="img/2.png" alt="" srcset="" style="width: 50%; height : 80vh">
-=======
-                    <img src="img/pic3.jpeg" alt="" srcset="" style="width: 60%; height : 80vh">
->>>>>>> 8a3525a47b0fa64255983a2481dd1efec728e0dc
                 </div>
                 <div class="row mtt-5">
                     <div class="card">
@@ -187,11 +183,9 @@
                         <div class="card">
                             <div class="card-header">My Requests</div>
                             <div class="card-body">
-<<<<<<< HEAD
                                 <p class="p-2 ">
                                     This is the home of quality services. With us , you are never disappointed. Cash back is guaranteed if you are not satisfied!
                                 </p>
-=======
                                 @if (session('success'))
                                 <div class="alert alert-success bg-success text-light" role="alert">
                                     <button type="button" class="close" data-dismiss="alert" onclick='window.location.reload(true);'>×</button>
@@ -241,7 +235,6 @@
                                         </tr>
                                     </tfoot>
                                 </table>
->>>>>>> 8a3525a47b0fa64255983a2481dd1efec728e0dc
                             </div>
                         </div>
                     </div>

@@ -3,11 +3,8 @@
 @section('content')
 <section class="Splash container-fluid" style="margin-top : -30px !important">
     <div class="video-container">
-<<<<<<< HEAD
           <img src="img/1.png" alt="" srcset="" style="width: 50%; height : 80vh">
-=======
           <img src="img/pic1.jpeg" alt="" srcset="" style="width: 50%; height : 80vh">
->>>>>>> 8a3525a47b0fa64255983a2481dd1efec728e0dc
     </div>
     <div class="row mtt-5">
         <div class="card">
